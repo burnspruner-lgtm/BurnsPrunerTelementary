@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      sudo apt update
+      sudo apt install -y python3-pip python3-dev git build-essential \
+          libncurses5-dev libffi-dev libssl-dev libsqlite3-dev autoconf automake \
+          libtool zlib1g-dev openjdk-11-jdk
+      pip3 install --upgrade cython buildozer kivy numpy obd
+  - command: |
+      echo "Workspace Ready! Run 'python3 main.py' to start Kivy app"
+ports:
+  - port: 5900
+    onOpen: ignore
